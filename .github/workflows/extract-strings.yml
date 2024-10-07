@@ -24,18 +24,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.REPO_COMMIT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node 18.x
         uses: actions/setup-node@v4
         with:
           node-version: "18.x"
-
-      - name: Set up commit signing
-        uses: Chia-Network/actions/commit-sign/gpg@main
-        with:
-          gpg_private_key: ${{ secrets.CHIA_AUTOMATION_PRIVATE_GPG_KEY }}
-          passphrase: ${{ secrets.CHIA_AUTOMATION_PRIVATE_GPG_PASSPHRASE }}
 
       - name: Extract Strings
         run: |
