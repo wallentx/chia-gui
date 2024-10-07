@@ -3,36 +3,6 @@
 
 version: 2
 updates:
-  - package-ecosystem: "gomod"
-    directory: /
-    schedule:
-      interval: "weekly"
-      day: "tuesday"
-    open-pull-requests-limit: 10
-    rebase-strategy: auto
-    labels:
-      - dependencies
-      - go
-      - "Changed"
-    reviewers: ["wallentx"]
-    groups:
-      global:
-        patterns:
-          - "*"
-
-  - package-ecosystem: "pip"
-    directory: /
-    schedule:
-      interval: "weekly"
-      day: "tuesday"
-    open-pull-requests-limit: 10
-    rebase-strategy: auto
-    labels:
-      - dependencies
-      - python
-      - "Changed"
-    reviewers: ["wallentx"]
-
   - package-ecosystem: "github-actions"
     directory: /
     schedule:
@@ -58,15 +28,3 @@ updates:
       - javascript
       - "Changed"
     reviewers: ["wallentx"]
-
-  - package-ecosystem: cargo
-    directory: /
-    schedule:
-      interval: "weekly"
-      day: "tuesday"
-    open-pull-requests-limit: 10
-    rebase-strategy: auto
-    labels:
-      - dependencies
-      - rust
-      - "Changed"
