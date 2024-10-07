@@ -3,28 +3,37 @@
 
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: /
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "tuesday"
-    open-pull-requests-limit: 10
+      interval: 'weekly'
+      day: 'tuesday'
+    open-pull-requests-limit: 30
     rebase-strategy: auto
     labels:
       - dependencies
       - github_actions
       - "Changed"
-    reviewers: ["wallentx"]
+    commit-message:
+      prefix: 'github-actions'
+      include: scope
+    reviewers: 
+      - wallentx
 
-  - package-ecosystem: "npm"
-    directory: /
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
-      day: "tuesday"
-    open-pull-requests-limit: 10
+      interval: 'weekly'
+      day: 'tuesday'
+    open-pull-requests-limit: 30
+    commit-message:
+      prefix: 'pnpm'
+      include: scope
+    versioning-strategy: 'increase'
     rebase-strategy: auto
     labels:
       - dependencies
       - javascript
       - "Changed"
-    reviewers: ["wallentx"]
+    reviewers: 
+      - wallentx
