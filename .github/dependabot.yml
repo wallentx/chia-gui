@@ -14,7 +14,7 @@ updates:
       - dependencies
       - go
       - "Changed"
-    reviewers: ["cmmarslender", "starttoaster"]
+    reviewers: ["wallentx"]
     groups:
       global:
         patterns:
@@ -31,7 +31,7 @@ updates:
       - dependencies
       - python
       - "Changed"
-    reviewers: ["emlowe", "altendky"]
+    reviewers: ["wallentx"]
 
   - package-ecosystem: "github-actions"
     directory: /
@@ -44,7 +44,7 @@ updates:
       - dependencies
       - github_actions
       - "Changed"
-    reviewers: ["cmmarslender", "altendky"]
+    reviewers: ["wallentx"]
 
   - package-ecosystem: "npm"
     directory: /
@@ -57,7 +57,7 @@ updates:
       - dependencies
       - javascript
       - "Changed"
-    reviewers: ["cmmarslender", "ChiaMineJP"]
+    reviewers: ["wallentx"]
 
   - package-ecosystem: cargo
     directory: /
