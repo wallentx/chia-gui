@@ -66,7 +66,7 @@
     "@rollup/plugin-json": "6.0.0",
     "@rollup/plugin-node-resolve": "15.2.1",
     "@types/core-js": "2.5.5",
-    "@types/isomorphic-fetch": "0.0.36",
+    "@types/isomorphic-fetch": "0.0.39",
     "@types/jest": "29.5.3",
     "@types/lodash": "4.14.197",
     "@types/react": "18.2.20",
