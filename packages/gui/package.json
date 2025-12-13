@@ -154,7 +154,7 @@
     "style-loader": "4.0.0",
     "tailwindcss": "^4.1.10",
     "terser": "5.19.2",
-    "terser-webpack-plugin": "5.3.14",
+    "terser-webpack-plugin": "5.3.16",
     "typescript": "5.7.3",
     "webpack": "5.99.9",
     "webpack-bundle-analyzer": "4.10.2",
