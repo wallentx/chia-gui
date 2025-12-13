@@ -71,7 +71,7 @@
     "@loadable/babel-plugin": "5.16.1",
     "@loadable/component": "5.15.3",
     "@mui/icons-material": "5.14.3",
-    "@mui/lab": "5.0.0-alpha.140",
+    "@mui/lab": "5.0.0-alpha.175",
     "@mui/material": "5.14.5",
     "@mui/styled-engine-sc": "5.12.0",
     "@mui/styles": "5.14.5",
