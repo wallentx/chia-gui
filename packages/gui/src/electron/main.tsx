@@ -10,6 +10,7 @@ import {
   Notification,
   type MenuItemConstructorOptions,
   nativeTheme,
+  Tray,
 } from 'electron';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -24,6 +25,7 @@ import '../config/env';
 
 import packageJson from '../../package.json';
 import AppIcon from '../assets/img/chia64x64.png';
+import ChiaCircleIcon from '../assets/img/chia_circle.png';
 import { i18n } from '../config/locales';
 
 import CacheManager from './CacheManager';
@@ -108,6 +110,8 @@ ipcMainHandle(AppAPI.SHOW_NOTIFICATION, async (options: { title: string; body: s
 
 // main window
 let mainWindow: BrowserWindow | null = null;
+let tray: Tray | null = null;
+let isQuitting = false;
 
 let currentDownloadRequest: any;
 let abortDownloadingFiles: boolean = false;
@@ -488,6 +492,29 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
       },
     });
 
+    const trayIcon = nativeImage.createFromPath(path.join(__dirname, ChiaCircleIcon));
+    tray = new Tray(trayIcon);
+    const contextMenu = Menu.buildFromTemplate([
+      {
+        label: i18n._(/* i18n */ { id: 'Show app' }),
+        click: () => {
+          mainWindow?.show();
+        },
+      },
+      {
+        label: i18n._(/* i18n */ { id: 'Quit' }),
+        click: () => {
+          isQuitting = true;
+          mainWindow?.close();
+        },
+      },
+    ]);
+    tray.setToolTip(app.getName());
+    tray.setContextMenu(contextMenu);
+    tray.on('double-click', () => {
+      mainWindow?.show();
+    });
+
     // allow the cache manager to handle the cache protocol
     cacheManager.prepareProtocol(mainWindow.webContents.session.protocol);
 
@@ -599,12 +626,19 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
     //   mainWindow.webContents.openDevTools();
     // }
     mainWindow.on('close', async (e) => {
-      // if the daemon isn't local we aren't going to try to start/stop it
-      if (decidedToClose || !manageDaemonLifetime(NET)) {
+      if (decidedToClose) {
         return;
       }
       if (!mainWindow) {
         throw new Error('`mainWindow` is empty');
+      }
+      if (!isQuitting) {
+        e.preventDefault();
+        mainWindow.hide();
+        return;
+      }
+      if (!manageDaemonLifetime(NET)) {
+        return;
       }
       e.preventDefault();
 
@@ -684,6 +718,10 @@ if (ensureSingleInstance() && ensureCorrectEnvironment()) {
 
   app.on('window-all-closed', () => {
     app.quit();
+  });
+
+  app.on('before-quit', () => {
+    isQuitting = true;
   });
 
   app.on('open-file', (event, pathLocal) => {
