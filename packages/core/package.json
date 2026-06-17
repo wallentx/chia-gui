@@ -42,7 +42,7 @@
     "nx": "22.7.2",
     "overlayscrollbars": "1.13.3",
     "overlayscrollbars-react": "0.3.0",
-    "qs": "6.15.2",
+    "qs": "^6.15.0",
     "react-dropzone": "14.2.3",
     "react-number-format": "5.4.3",
     "react-redux": "8.1.2",
@@ -57,7 +57,7 @@
     "webpack-dev-server": "5.2.4"
   },
   "devDependencies": {
-    "@babel/core": "7.27.4",
+    "@babel/core": "7.29.6",
     "@babel/helper-get-function-arity": "7.16.7",
     "@babel/plugin-transform-runtime": "7.27.4",
     "@babel/preset-env": "7.27.2",
