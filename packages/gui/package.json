@@ -70,7 +70,7 @@
     "is-electron": "2.2.2",
     "is-plain-object": "5.0.0",
     "isomorphic-fetch": "3.0.0",
-    "js-yaml": "4.1.1",
+    "js-yaml": "4.2.0",
     "lodash": "4.18.1",
     "match-sorter": "6.3.4",
     "mime-types": "2.1.35",
@@ -100,10 +100,10 @@
     "unique-names-generator": "4.6.0",
     "validator": "13.15.23",
     "victory": "^36.6.11",
-    "ws": "8.20.1"
+    "ws": "8.21.0"
   },
   "devDependencies": {
-    "@babel/core": "7.27.4",
+    "@babel/core": "7.29.6",
     "@babel/helper-get-function-arity": "7.16.7",
     "@babel/preset-env": "7.27.2",
     "@babel/preset-react": "7.27.1",
