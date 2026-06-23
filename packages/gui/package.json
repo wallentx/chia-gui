@@ -106,7 +106,7 @@
     "@babel/core": "7.29.6",
     "@babel/helper-get-function-arity": "7.16.7",
     "@babel/preset-env": "7.27.2",
-    "@babel/preset-react": "7.27.1",
+    "@babel/preset-react": "7.29.7",
     "@babel/preset-typescript": "7.27.1",
     "@babel/register": "7.27.1",
     "@lingui/cli": "4.11.4",
