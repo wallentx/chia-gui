@@ -34,7 +34,7 @@
     "react-router-dom": "7.17.0",
     "regenerator-runtime": "0.14.1",
     "terser-webpack-plugin": "5.6.0",
-    "webpack-dev-server": "5.2.4"
+    "webpack-dev-server": "5.2.5"
   },
   "devDependencies": {
     "@babel/core": "7.29.6",
